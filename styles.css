@@ -1,7 +1,8 @@
+/* Configurações da página */
 *{
     padding: 0;
-    box-sizing: border-box;
     margin: 0;
+    box-sizing: border-box;
 }
 
 body {
@@ -13,17 +14,19 @@ body {
     rgb(108, 143, 196) 100%)
 }
 
+/* Grid */
 .bigsquare{
     display: grid;
     width: 100%;
     height: 100%;
     justify-content: center;
-    align-items: center;
     justify-items: center;
     align-content: center;
+    align-items: center;
     grid-template-columns: repeat(3, auto);
 }
 
+/* Fazendo a sobreposição */
 .bigsquare.x .smallsquare:not(.circulo):not(.x):hover::after,
 .bigsquare.x .smallsquare:not(.circulo):not(.x):hover::before,
 .bigsquare.circulo .smallsquare:not(.circulo):not(.x):hover::after,
@@ -31,20 +34,22 @@ body {
 background: rgba(255, 255, 255, 0.3) !important;
 }
 
+/* Configurações de célula */
 .smallsquare{
     width: 100px;
     height: 100px;
     border: 2px solid white;
     display: flex;
     justify-content: center;
+    align-items: center;
     position: relative;
-    align-items: center; 
 }
 
 .smallsquare.x, .smallsquare.circulo{
     cursor: not-allowed;
 }
 
+/* Tirando a borda do grid */
 .smallsquare:nth-child(1),
 .smallsquare:nth-child(2),
 .smallsquare:nth-child(3){
@@ -69,6 +74,7 @@ background: rgba(255, 255, 255, 0.3) !important;
     border-bottom: none;
 }
 
+/* Fazendo o X */
 .smallsquare.x::before,
 .smallsquare.x::after,
 .bigsquare.x .smallsquare:not(.circulo):not(.x):hover::after,
@@ -90,6 +96,7 @@ background: rgba(255, 255, 255, 0.3) !important;
     transform: rotate(-45deg);
 }
 
+/* Fazendo o círculo */
 .smallsquare.circulo::before,
 .smallsquare.circulo::after,
 .bigsquare.circulo .smallsquare:not(.circulo):not(.x):hover::after,
@@ -102,6 +109,7 @@ background: rgba(255, 255, 255, 0.3) !important;
     border-radius: 50%;
 }
 
+/* Mensagem de Vitória */
 .mensagemvencedor{
     display: none;
     position: fixed;

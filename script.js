@@ -31,13 +31,13 @@ const checarEmpate = () => {
     });
 };
 
-const comecarJogo =() =>{
+const comecarJogo = () => {
     turnoCirculo = false;
     for (const smallsquare of smallsquareAction){
         smallsquare.classList.remove("circulo");
         smallsquare.classList.remove("x");
-        smallsquare.removeEventListener("click", handleClick);
-        smallsquare.addEventListener("click", handleClick, {once:true});
+        smallsquare.removeEventListener("click", click);
+        smallsquare.addEventListener("click", click, {once:true});
     }
 
     jogada()
@@ -75,7 +75,7 @@ const trocarTurnos = () => {
     jogada();
 };
 
-const handleClick = (e) => {
+const click = (e) => {
     const smallsquare = e.target;
     const serAdicionado = turnoCirculo ? "circulo" : "x";
     colocar(smallsquare, serAdicionado);
