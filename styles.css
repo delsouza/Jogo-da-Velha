@@ -1,0 +1,136 @@
+*{
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient( 
+    90deg, 
+    rgb(150, 110, 214) 30%,
+    rgb(108, 143, 196) 100%)
+}
+
+.bigsquare{
+    display: grid;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    grid-template-columns: repeat(3, auto);
+}
+
+.bigsquare.x .smallsquare:not(.circulo):not(.x):hover::after,
+.bigsquare.x .smallsquare:not(.circulo):not(.x):hover::before,
+.bigsquare.circulo .smallsquare:not(.circulo):not(.x):hover::after,
+.bigsquare.circulo .smallsquare:not(.circulo):not(.x):hover::before{
+background: rgba(255, 255, 255, 0.3) !important;
+}
+
+.smallsquare{
+    width: 100px;
+    height: 100px;
+    border: 2px solid white;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    align-items: center; 
+}
+
+.smallsquare.x, .smallsquare.circulo{
+    cursor: not-allowed;
+}
+
+.smallsquare:nth-child(1),
+.smallsquare:nth-child(2),
+.smallsquare:nth-child(3){
+    border-top: none;
+}
+
+.smallsquare:nth-child(1),
+.smallsquare:nth-child(4),
+.smallsquare:nth-child(7){
+    border-left: none;
+}
+
+.smallsquare:nth-child(3),
+.smallsquare:nth-child(6),
+.smallsquare:nth-child(9){
+    border-right: none;
+}
+
+.smallsquare:nth-child(7),
+.smallsquare:nth-child(8),
+.smallsquare:nth-child(9){
+    border-bottom: none;
+}
+
+.smallsquare.x::before,
+.smallsquare.x::after,
+.bigsquare.x .smallsquare:not(.circulo):not(.x):hover::after,
+.bigsquare.x .smallsquare:not(.circulo):not(.x):hover::before{
+    content: "";
+    height: calc(100px * 0.15);
+    width: calc(100px * 0.9);
+    background:white;
+    position: absolute;
+}
+
+.smallsquare.x::before,
+.bigsquare.x .smallsquare:not(.circulo):not(.x):hover::before{
+    transform: rotate(45deg);
+}
+
+.smallsquare.x::after,
+.bigsquare.x .smallsquare:not(.circulo):not(.x):hover::after{
+    transform: rotate(-45deg);
+}
+
+.smallsquare.circulo::before,
+.smallsquare.circulo::after,
+.bigsquare.circulo .smallsquare:not(.circulo):not(.x):hover::after,
+.bigsquare.circulo .smallsquare:not(.circulo):not(.x):hover::after{
+    content: "";
+    height: calc(100px * 0.9);
+    width: calc(100px * 0.9);
+    background:white;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.mensagemvencedor{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0.8);
+    flex-direction: column;
+}
+
+.mensagemvencedor button {
+    font-size: 2.8rem;
+    background-color: rgb(99, 16, 99);
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 15px;
+    border: none;
+    margin-top: 16px;
+    color:white;
+}
+
+.textovencedor{
+    color:white;
+    font-size: 5rem;
+}
+
+.mostrarMensagemVencedor{
+    display:flex;
+}
