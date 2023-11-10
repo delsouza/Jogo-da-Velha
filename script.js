@@ -17,6 +17,7 @@ const combinacoesVitoria = [
     [2, 4, 6],
 ];
 
+//Checar vitória (se uma das combinações a cima estiver preenchida com X ou O do jogador atual)
 const checarVitoria = (jogadorAtual) => {
     return combinacoesVitoria.some(combinacao => {
         return combinacao.every((index) => {
@@ -25,6 +26,7 @@ const checarVitoria = (jogadorAtual) => {
     });
 };
 
+//Checar empate se já foram preenchidos todos os quadrados do jogo da velha)
 const checarEmpate = () => {
     return [...smallsquareAction].every((smallsquare) => {
       return smallsquare.classList.contains('x') || smallsquare.classList.contains('circulo');
